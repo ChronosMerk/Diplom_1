@@ -1,25 +1,25 @@
 import pytest
-from data import ModelIngredient
+from data import ModelBurger
 from praktikum.ingredient import Ingredient
 
+@pytest.mark.parametrize('type_, name, price',
+    [
+        (ModelBurger.INGREDIENT_SAUCE, ModelBurger.NAME_BUN, ModelBurger.PRICE_BUN),
+        (ModelBurger.INGREDIENT_FILLING, ModelBurger.NAME_BUN, ModelBurger.PRICE_BUN),
+    ]
+)
 class TestIngregient:
-    @pytest.mark.parametrize('input_data', [ModelIngredient.INGREDIENT_SAUCE, ModelIngredient.INGREDIENT_FILLING])
-    def test_get_price_correct_returns_price(self, input_data):
-        type, name, price = input_data
-        ingredient = Ingredient(type, name, price)
+    def test_get_price_correct_returns_price(self, type_, name, price):
+        ingredient = Ingredient(type_, name, price)
 
         assert ingredient.get_price() == price
 
-    @pytest.mark.parametrize('input_data', [ModelIngredient.INGREDIENT_SAUCE, ModelIngredient.INGREDIENT_FILLING])
-    def test_get_name_correct_returns_name(self, input_data):
-        type, name, price = input_data
-        ingredient = Ingredient(type, name, price)
+    def test_get_name_correct_returns_name(self, type_, name, price):
+        ingredient = Ingredient(type_, name, price)
 
         assert ingredient.get_name() == name
 
-    @pytest.mark.parametrize('input_data',[ModelIngredient.INGREDIENT_SAUCE, ModelIngredient.INGREDIENT_FILLING])
-    def test_get_type_correct_returns_type(self, input_data):
-        type, name, price = input_data
-        ingredient = Ingredient(type, name, price)
+    def test_get_type_correct_returns_type(self, type_, name, price):
+        ingredient = Ingredient(type_, name, price)
 
-        assert ingredient.get_type() == type
+        assert ingredient.get_type() == type_
