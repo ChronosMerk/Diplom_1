@@ -1,0 +1,10 @@
+import random
+from praktikum.ingredient_types import INGREDIENT_TYPE_SAUCE, INGREDIENT_TYPE_FILLING
+
+class ModelBurger:
+    NAME_BUN = "Popeyes"
+    PRICE_BUN = 100
+    PRICE_INGREDIENTS = 100
+    INGREDIENT_NAME = "Lettuce"
+    INGREDIENT_SAUCE = INGREDIENT_TYPE_SAUCE
+    INGREDIENT_FILLING = INGREDIENT_TYPE_FILLING
